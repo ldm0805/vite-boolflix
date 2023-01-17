@@ -16,12 +16,13 @@ export default {
 <template lang="">
 
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  <img class="card-img-top" src="..." alt="">
   <div class="card-body">
     <h5 class="card-title">Titolo del film: {{ movie.title }}</h5>
     <p class="card-text">Titolo Originale: {{ movie.original_title }}</p>
     <p class="card-text">Voto: {{ movie.vote_average }}</p>
     <p class="card-text">Lingua: {{ movie.original_language }}</p>
+    <img :src="`https://www.countryflagicons.com/FLAT/64/${(movie.original_language).toUpperCase()}.png`">
   </div>
 </div>
 </template>
