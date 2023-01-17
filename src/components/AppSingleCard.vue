@@ -16,7 +16,7 @@ export default {
 <template lang="">
 
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="">
+  <img class="card-img-top" :src="`https://www.themoviedb.org/t/p/w500/${(movie.poster_path)}`">
   <div class="card-body">
     <h5 class="card-title">Titolo del film: {{ movie.title }}</h5>
     <p class="card-text">Titolo Originale: {{ movie.original_title }}</p>
