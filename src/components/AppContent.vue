@@ -19,7 +19,7 @@ export default {
 <template lang="">
     <div v-if="store.loading">
         <div class="d-flex justify-content-center">
-            <div class="loading animate__animated animate__heartBeat">
+            <div class="loading animate__infinite animate__heartBeat_ ">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" alt="">
             </div>
         </div>
@@ -48,7 +48,7 @@ img {
     display: flex;
     justify-content: center;
     margin-top: 10em;
-    animation: heartBeat;
-    animation-duration: 10s;
+    animation: heartBeat infinite;
+    animation-duration: 2s;
 }
 </style>
