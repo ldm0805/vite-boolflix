@@ -73,6 +73,15 @@ export default {
         starsFilledArr.push('fa-regular fa-star');
       }
       return starsFilledArr
+    },
+    overviewEmpty(details) {
+      if (details.overview == '') {
+        return 'La descrizione non è disponibile.'
+      }
+      else {
+        return `${this.details.overview}`
+      }
+
     }
   }
 }
@@ -90,13 +99,13 @@ export default {
         <h5 class="card-title">{{ title(details) }}</h5>
         <p class="card-text">Titolo Originale: {{  originalTitle(details) }}</p>
         <div class="overview">
-          <div class="card-text">{{details.overview}}</div>
+          <div class="card-text">Descrizione: {{overviewEmpty(details)}}</div>
         </div>
         <div class="card-text">Voto:
           <i v-for="(value, index) in filledStars()" :key="index" :class="value"></i>
         </div>
         <p class="card-text">Lingua: {{ details.original_language }}</p>
-      <img :src="`https://www.countryflagicons.com/FLAT/64/${getFlag(details)}.png`">
+      <img :src="`https://www.countryflagicons.com/FLAT/64/${getFlag(details)}.png`" alt="Bandiera">
     </div>
     </div>
   </div>
@@ -115,7 +124,6 @@ i {
 
 .wrapper {
   display: flex;
-  justify-content: space-around;
 }
 
 .overview {
@@ -124,7 +132,7 @@ i {
 }
 
 .card {
-  width: 280px;
+  min-width: 280px;
   border-radius: 15px;
   padding: 1em;
   margin: 1em;
