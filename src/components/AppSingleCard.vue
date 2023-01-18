@@ -38,6 +38,7 @@ export default {
         return `https://www.emugifs.net/wp-content/uploads/2021/07/Eh-Volevi-GIF-Zeb89-MEME-Reazione-Divertente-dello-YouTuber-Italiano-da-Usare-nei-Commenti-ai-Post-di-Facebook-o-nei-Gruppi-WhatsApp-Scarica-Gratis-e-Condividi.gif`
       }
     },
+    //Funzione per le bandiere
     getFlag(value) {
       let lang = '';
 
@@ -61,23 +62,24 @@ export default {
     },
 
   },
-  //Implementazione stelle
+  //Implementazione stelle piene
   computed: {
-    stars() {
-      let stars = [];
+    filledStars() {
+      let starsFilledArr = [];
       for (let i = 0; i < 5; i++) {
         if (i < Math.round(this.details.vote_average / 2)) {
-          stars.push(i);
+          starsFilledArr.push(i);
         }
       }
-      return stars;
+      return starsFilledArr;
     },
+    //Implementazione stelle vuote
     emptyStars() {
-      let emptystars = [];
+      let emptyStarsArr = [];
       for (let i = 0; i < 5 - Math.round(this.details.vote_average / 2); i++) {
-        emptystars.push(i);
+        emptyStarsArr.push(i);
       }
-      return emptystars;
+      return emptyStarsArr;
     }
   }
 }
@@ -92,7 +94,7 @@ export default {
     <h5 class="card-title">{{ title(details) }}</h5>
     <p class="card-text">Titolo Originale: {{  originalTitle(details) }}</p>
     <p class="card-text">Voto: 
-      <i v-for="n in stars" class="fa-solid fa-star"></i>
+      <i v-for="n in filledStars" class="fa-solid fa-star"></i>
       <i v-for="n in emptyStars" class="fa-regular fa-star"></i>
     </p>
     <p class="card-text">Lingua: {{ details.original_language }}</p>

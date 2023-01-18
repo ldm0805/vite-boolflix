@@ -1,9 +1,11 @@
 <script>
 import { store } from '../store';
 import AppSingleCard from './AppSingleCard.vue';
+
 export default {
     components: {
         AppSingleCard,
+
     },
     name: 'AppMain',
     data() {
