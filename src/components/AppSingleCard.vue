@@ -60,29 +60,24 @@ export default {
         return urlFlag
       }
     },
-
-  },
-  //Implementazione stelle piene
-  computed: {
+    //Funzione stelle 
     filledStars() {
+      let starFull = Math.round(this.details.vote_average / 2);
       let starsFilledArr = [];
-      for (let i = 0; i < 5; i++) {
-        if (i < Math.round(this.details.vote_average / 2)) {
-          starsFilledArr.push(i);
-        }
+      for (let i = 0; i < starFull; i++) {
+        starsFilledArr.push('fa-solid fa-star');
       }
-      return starsFilledArr;
-    },
-    //Implementazione stelle vuote
-    emptyStars() {
-      let emptyStarsArr = [];
-      for (let i = 0; i < 5 - Math.round(this.details.vote_average / 2); i++) {
-        emptyStarsArr.push(i);
+      //Implementazione stelle vuote
+      let starEmpty = 5 - starFull;
+      for (let i = 0; i < starEmpty; i++) {
+        starsFilledArr.push('fa-regular fa-star');
       }
-      return emptyStarsArr;
+      return starsFilledArr
     }
   }
 }
+
+//Implementazione stelle piene
 
 </script>
 
@@ -94,10 +89,12 @@ export default {
      <div class="card-body">
         <h5 class="card-title">{{ title(details) }}</h5>
         <p class="card-text">Titolo Originale: {{  originalTitle(details) }}</p>
-        <p class="card-text">Voto: 
-          <i v-for="n in filledStars" class="fa-solid fa-star"></i>
-          <i v-for="n in emptyStars" class="fa-regular fa-star"></i>
-        </p>
+        <div class="overview">
+          <div class="card-text">{{details.overview}}</div>
+        </div>
+        <div class="card-text">Voto:
+          <i v-for="(value, index) in filledStars()" :key="index" :class="value"></i>
+        </div>
         <p class="card-text">Lingua: {{ details.original_language }}</p>
       <img :src="`https://www.countryflagicons.com/FLAT/64/${getFlag(details)}.png`">
     </div>
@@ -118,14 +115,18 @@ i {
 
 .wrapper {
   display: flex;
-
   justify-content: space-around;
+}
+
+.overview {
+  height: 92px;
+  overflow: hidden;
 }
 
 .card {
   width: 280px;
   border-radius: 15px;
-  padding: 1.3em;
+  padding: 1em;
   margin: 1em;
   background: white;
   position: relative;
@@ -133,6 +134,7 @@ i {
   align-items: flex-end;
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+  border-color: black;
 }
 
 .card:hover {
@@ -193,17 +195,6 @@ i {
   margin-top: 8px;
 }
 
-.card .info button {
-  padding: 0.6rem;
-  outline: none;
-  border: none;
-  border-radius: 3px;
-  background: white;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.4s ease;
-}
 
 .card .info button:hover {
   background: dodgerblue;
