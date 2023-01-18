@@ -14,7 +14,6 @@ export default {
             let apiCall = store.apiMovie + input;
             axios.get(apiCall).then((response) => {
                 store.movieArr = response.data.results
-                console.log(results)
             })
         }
     }

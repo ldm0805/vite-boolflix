@@ -1,7 +1,4 @@
 <script>
-import { getBaseTransformPreset } from '@vue/compiler-core'
-
-
 export default {
   name: 'Card',
   props: {
@@ -74,6 +71,13 @@ export default {
         }
       }
       return stars;
+    },
+    emptyStars() {
+      let emptystars = [];
+      for (let i = 0; i < 5 - Math.round(this.details.vote_average / 2); i++) {
+        emptystars.push(i);
+      }
+      return emptystars;
     }
   }
 }
@@ -87,7 +91,10 @@ export default {
   <div class="card-body">
     <h5 class="card-title">{{ title(details) }}</h5>
     <p class="card-text">Titolo Originale: {{  originalTitle(details) }}</p>
-    <p class="card-text">Voto: <i v-for="n in stars" class="fa fa-2x fa-star">{{ rating }}</i></p>
+    <p class="card-text">Voto: 
+      <i v-for="n in stars" class="fa-solid fa-star"></i>
+      <i v-for="n in emptyStars" class="fa-regular fa-star"></i>
+    </p>
     <p class="card-text">Lingua: {{ details.original_language }}</p>
     <img :src="`https://www.countryflagicons.com/FLAT/64/${getFlag(details)}.png`">
   </div>
@@ -95,5 +102,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/mixins' as *;
 
+i {
+  color: yellow;
+}
 </style>
