@@ -36,7 +36,7 @@ export default {
             Ho trovato {{ store.movieArr.length }} film
         </div>
         <div class="row row-cols-5 gap-3 justify-content-between">
-            <AppSingleCard v-for="(item, index) in store.movieArr" :key="index" :movie="item" />
+            <AppSingleCard v-for="(item, index) in store.movieArr" :key="index" :details="item" />
         </div>
     </div>
 </template>
