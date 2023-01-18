@@ -1,4 +1,5 @@
 <script>
+import { store } from '../store.js';
 export default {
   name: 'Card',
   props: {
@@ -82,7 +83,7 @@ export default {
         return `${this.details.overview}`
       }
 
-    }
+    },
   }
 }
 
@@ -91,27 +92,39 @@ export default {
 </script>
 
 <template lang="">
-  <div class="wrapper">
-  <div class="card">
-    <img class="card-img-top front-image" :src="posterImage(details)" :alt="title(details)">
-    <div class="info">
-     <div class="card-body">
-        <h5 class="card-title">{{ title(details) }}</h5>
-        <p class="card-text">Titolo Originale: {{  originalTitle(details) }}</p>
-        <div class="overview">
-          <div class="card-text">Descrizione: {{overviewEmpty(details)}}</div>
+  <div class="container d-flex">
+  <!-- <div class="loading" v-if="store.loading">
+            <h2>Caricamento in corso</h2>
+            <svg viewBox="0 0 50 50">
+                <circle cx="25" cy="25" r="20" />
+            </svg>
         </div>
-        <div class="card-text">Voto:
-          <i v-for="(value, index) in filledStars()" :key="index" :class="value"></i>
-        </div>
-        <p class="card-text">Lingua: {{ details.original_language }}</p>
-      <img :src="`https://www.countryflagicons.com/FLAT/64/${getFlag(details)}.png`" alt="Bandiera">
-    </div>
-    </div>
-  </div>
-</div>
+        <div v-else> -->
 
-</template>
+          <div class="wrapper">
+            <div class="card">
+              <img class="card-img-top front-image" :src="posterImage(details)" :alt="title(details)">
+              <div class="info">
+                <div class="card-body">
+                  <h5 class="card-title">{{ title(details) }}</h5>
+                  <p class="card-text">Titolo Originale: {{  originalTitle(details) }}</p>
+                  <div class="overview">
+                    <div class="card-text">Descrizione: {{overviewEmpty(details)}}</div>
+                  </div>
+                  <div class="card-text">Voto:
+                    <i v-for="(value, index) in filledStars()" :key="index" :class="value"></i>
+                  </div>
+                  <p class="card-text">Lingua: {{ details.original_language }}</p>
+                  <img :src="`https://www.countryflagicons.com/FLAT/64/${getFlag(details)}.png`" alt="Bandiera">
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+      </div>
+
+          
+        </template>
 
 <style lang="scss" scoped>
 @use '../styles/partials/variables' as *;
@@ -140,6 +153,7 @@ i {
   position: relative;
   display: flex;
   align-items: flex-end;
+  align-items: stretch;
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
   border-color: black;

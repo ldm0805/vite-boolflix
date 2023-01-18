@@ -17,7 +17,7 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="container-fluid mt-5">
+    <div class="mt-5">
         <div class="container-card">
             <AppSingleCard v-for="(item, index) in store.movieArr" :key="index" :details="item" />
         </div>

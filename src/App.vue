@@ -12,19 +12,28 @@ export default {
     return {
       store,
     }
-  }
+  },
+  // created() {
+  //   this.pauseNetflix
+  // },
+  // methods: {
+  //   pauseNetflix() {
+  //     setTimeout(() => {
+  //       store.loading = true
+  //     }, 3000)
+  //   }
+  // }
 }
 </script>
 
 <template lang="">
-<div>
   <AppHeader />
   <AppContent />
-</div>
+
 </template>
 
 <style lang="scss">
-@use './styles/general.scss';
+@use './styles/general.scss' as *;
 
 /* width */
 ::-webkit-scrollbar {
