@@ -13,16 +13,7 @@ export default {
       store,
     }
   },
-  // created() {
-  //   this.pauseNetflix
-  // },
-  // methods: {
-  //   pauseNetflix() {
-  //     setTimeout(() => {
-  //       store.loading = true
-  //     }, 3000)
-  //   }
-  // }
+
 }
 </script>
 

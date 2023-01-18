@@ -17,9 +17,16 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="mt-5">
-        <div class="container-card">
-            <AppSingleCard v-for="(item, index) in store.movieArr" :key="index" :details="item" />
+    <div v-if="store.loading">
+        <div class="d-flex justify-content-center">
+            <div class="loading animate__animated animate__heartBeat">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div v-else>
+        <div class="container-card mt-5">
+            <AppSingleCard v-for="(item, index) in store.movieArr" :key="index" :details="item" v-model="change" @change="$emit('selection', change)"/>
         </div>
     </div>
 </template>
@@ -30,5 +37,18 @@ export default {
     overflow-x: auto;
     overflow-y: hidden;
     margin-bottom: 2em;
+}
+
+img {
+    width: 80%;
+}
+
+.loading {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10em;
+    animation: heartBeat;
+    animation-duration: 10s;
 }
 </style>

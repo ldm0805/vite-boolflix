@@ -14,6 +14,7 @@ export default {
             let apiCall = store.apiMovie + input;
             axios.get(apiCall).then((response) => {
                 store.movieArr = response.data.results
+                store.loading = false;
             })
         }
     }
@@ -23,8 +24,8 @@ export default {
     <div class="container">
         <div class="row">
             <div class="input-group">
-                <input type="text" id="search" class="form-control" placeholder="Ricerca il film" aria-label="Ricerca il film" v-model="inputText" @keyup.enter="search(inputText)">
-                <button class="btn btn-danger" type="button" @click="search(inputText)">Cerca</button>
+                <input type="text" id="search" class="form-control" placeholder="Ricerca il film" aria-label="Ricerca il film" v-model="inputText" @keyup.enter="search(inputText)" @selection="search">
+                <button class="btn btn-danger" type="button" @click="search(inputText)"  @selection="search">Cerca</button>
             </div>
         </div>
     </div>
