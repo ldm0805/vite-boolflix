@@ -21,15 +21,18 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="container mt-5">
+    <div class="container">
         <div class="row">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Ricerca il film" aria-label="Ricerca il film" v-model="inputText" @keyup.enter="search(inputText)">
-                <button class="btn btn-outline-secondary" type="button" @click="search(inputText)">Cerca</button>
+                <input type="text" id="search" class="form-control" placeholder="Ricerca il film" aria-label="Ricerca il film" v-model="inputText" @keyup.enter="search(inputText)">
+                <button class="btn btn-danger" type="button" @click="search(inputText)">Cerca</button>
             </div>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/mixins' as *;
 
+.input-group {}
 </style>
