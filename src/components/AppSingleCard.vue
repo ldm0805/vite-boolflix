@@ -1,4 +1,6 @@
 <script>
+import { getBaseTransformPreset } from '@vue/compiler-core'
+
 
 export default {
   name: 'Card',
@@ -59,6 +61,19 @@ export default {
         let urlFlag = lang.toUpperCase()
         return urlFlag
       }
+    },
+
+  },
+  //Implementazione stelle
+  computed: {
+    stars() {
+      let stars = [];
+      for (let i = 0; i < 5; i++) {
+        if (i < Math.round(this.details.vote_average / 2)) {
+          stars.push(i);
+        }
+      }
+      return stars;
     }
   }
 }
@@ -72,7 +87,7 @@ export default {
   <div class="card-body">
     <h5 class="card-title">{{ title(details) }}</h5>
     <p class="card-text">Titolo Originale: {{  originalTitle(details) }}</p>
-    <p class="card-text">Voto: {{ details.vote_average }}</p>
+    <p class="card-text">Voto: <i v-for="n in stars" class="fa fa-2x fa-star">{{ rating }}</i></p>
     <p class="card-text">Lingua: {{ details.original_language }}</p>
     <img :src="`https://www.countryflagicons.com/FLAT/64/${getFlag(details)}.png`">
   </div>
