@@ -17,15 +17,21 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="container mt-5">
-        <div class="mb-5">
+    <div class="container-fluid mt-5">
+        <!-- <div>
             Ho trovato {{ store.movieArr.length }} film
-        </div>
-        <div class="row row-cols-5 gap-3 justify-content-between">
+        </div> -->
+        <div class="container-card">
             <AppSingleCard v-for="(item, index) in store.movieArr" :key="index" :details="item" />
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
-
+.container-card {
+    padding: 1em;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-bottom: 2em;
+}
 </style>
