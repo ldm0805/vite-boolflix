@@ -3,14 +3,42 @@
 import { store } from './store';
 import AppContent from './components/AppContent.vue';
 import AppHeader from './components/AppHeader.vue';
+
 export default {
   components: {
     AppContent,
     AppHeader,
+
   },
   data() {
     return {
       store,
+      listOfCats: [
+        {
+          title: "Marco",
+          msg: "ciccio",
+          link: "bello",
+          visible: true,
+        },
+        {
+          title: "Fabrizio",
+          msg: "ciccio",
+          link: "bello",
+          visible: true,
+        },
+        {
+          title: "Alessio",
+          msg: "ciccio",
+          link: "bello",
+          visible: true,
+        },
+        {
+          title: "Leonardo",
+          msg: "ciccio",
+          link: "bello",
+          visible: true,
+        },
+      ]
     }
   },
 
@@ -20,7 +48,6 @@ export default {
 <template lang="">
   <AppHeader />
   <AppContent />
-
 </template>
 
 <style lang="scss">

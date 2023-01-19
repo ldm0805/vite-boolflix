@@ -5,4 +5,5 @@ export const store = reactive({
     flagApi: 'https://countryflagsapi.com/png/ae',
     movieArr: [],
     loading: true,
+    actorApi: 'https://api.themoviedb.org/3/movie/25606/credits?api_key=a8f3b6f9513218c50175fe4adfab3d55&language=en-US'
 })

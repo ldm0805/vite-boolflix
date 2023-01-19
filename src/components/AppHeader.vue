@@ -1,8 +1,11 @@
 <script>
 import AppSearch from './AppSearch.vue';
+import newAccount from '../components/newAccount.vue';
 export default {
     components: {
         AppSearch,
+        newAccount,
+
     },
     data() {
         return {
@@ -45,6 +48,9 @@ export default {
         selectedItem(index) {
             this.activeItem = index
         },
+        addCat: function (theNewCat) {
+            this.listOfCats.unshift(theNewCat);
+        }
     }
 }
 </script>
@@ -64,7 +70,7 @@ export default {
         </div>
         <div class="right-search d-flex">
             <AppSearch />
-            
+            <newAccount v-on:create-new-cat="addCat($event)"/>
         </div>
     </div>
 </template>
@@ -73,6 +79,10 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/partials/variables' as *;
 @use '../styles/partials/mixins' as *;
+
+.ciccio {
+    color: white;
+}
 
 .search_cont {
     width: 100%;
@@ -85,10 +95,13 @@ export default {
         color: red;
     }
 
+    .right-search {
+        margin-bottom: 1em;
+    }
 
     .left-search,
     .right-search {
-        padding: 1em 2em;
+        padding: 2em 2em;
         align-items: center;
 
         img {
@@ -98,27 +111,25 @@ export default {
 
 
 
-}
+    ul {
+        display: flex;
+        list-style-type: none;
 
-ul {
-    display: flex;
-    margin: 2rem 1rem;
-    list-style-type: none;
+        .active {
+            border-bottom: 3px solid red;
+            padding-bottom: 1em;
+        }
 
-    .active {
-        border-bottom: 3px solid red;
-        padding-bottom: 1em;
-    }
+        li a {
+            padding: 0em 1em;
+            font-size: 16px;
+            text-decoration: none;
+            transition: border 0.3s;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
 
-    li a {
-        padding: 1em;
-        font-size: 16px;
-        text-decoration: none;
-        transition: border 0.3s;
-        color: white;
-        font-size: 15px;
-        font-weight: 500;
-
+        }
     }
 }
 </style>

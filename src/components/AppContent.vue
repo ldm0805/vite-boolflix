@@ -19,44 +19,33 @@ export default {
 <template lang="">
     <div class="container-all">
         <div v-if="store.loading">
-            <div class="d-flex justify-content-center">
+            <div class=" boolflix d-flex justify-content-center">
                 <div class="txt" contenteditable="true">Boolflix</div>
             </div>
         </div>
         <div v-else>
             <div class="container-card mt-5">
-                <AppSingleCard v-for="(item, index) in store.movieArr" :key="index" :details="item" v-model="change" @change="$emit('selection', change)"/>
+                <AppSingleCard v-for="(item, index) in store.movieArr" :key="index" :details="item"/>
             </div>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
 .container-card {
-    padding: 1em;
+    width: 100vw;
+    padding: 2em;
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
 }
 
-.container-all {
+.boolflix {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.loading {
-
-    width: 500px;
-    display: flex;
-    justify-content: center;
-    animation: heartBeat infinite;
-    animation-duration: 3s;
-
-    img {
-        width: 100%;
-    }
-}
 
 @function makelongshadow($length, $angle) {
     $val: 0px 0px transparent;

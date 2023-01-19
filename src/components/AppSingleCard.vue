@@ -35,7 +35,7 @@ export default {
         return `https://image.tmdb.org/t/p/w342${value.poster_path}`
       }
       else {
-        return `https://www.emugifs.net/wp-content/uploads/2021/07/Eh-Volevi-GIF-Zeb89-MEME-Reazione-Divertente-dello-YouTuber-Italiano-da-Usare-nei-Commenti-ai-Post-di-Facebook-o-nei-Gruppi-WhatsApp-Scarica-Gratis-e-Condividi.gif`
+        return `https://ih1.redbubble.net/image.2426525830.1498/fposter,small,wall_texture,product,750x1000.jpg`
       }
     },
     //Funzione per le bandiere
