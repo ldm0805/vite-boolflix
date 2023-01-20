@@ -13,32 +13,7 @@ export default {
   data() {
     return {
       store,
-      listOfCats: [
-        {
-          title: "Marco",
-          msg: "ciccio",
-          link: "bello",
-          visible: true,
-        },
-        {
-          title: "Fabrizio",
-          msg: "ciccio",
-          link: "bello",
-          visible: true,
-        },
-        {
-          title: "Alessio",
-          msg: "ciccio",
-          link: "bello",
-          visible: true,
-        },
-        {
-          title: "Leonardo",
-          msg: "ciccio",
-          link: "bello",
-          visible: true,
-        },
-      ]
+
     }
   },
 

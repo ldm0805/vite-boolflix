@@ -20,7 +20,7 @@ export default {
     <div class="container-all">
         <div v-if="store.loading">
             <div class=" boolflix d-flex justify-content-center">
-                <div class="txt" contenteditable="true">Boolflix</div>
+                <div class="txt">Boolflix</div>
             </div>
         </div>
         <div v-else>
