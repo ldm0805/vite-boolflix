@@ -17,11 +17,11 @@ export default {
         return {
             activeItem: 0,
             menu: [
-                {
-                    label: 'Home',
-                    url: '#',
-                    active: false
-                },
+                // {
+                //     label: 'Home',
+                //     url: '#',
+                //     active: false
+                // },
                 {
                     label: 'Film',
                     url: '#',
@@ -42,28 +42,29 @@ export default {
                     url: '#',
                     active: false
                 },
-                {
-                    label: 'La mia lista',
-                    url: '#',
-                    active: false
-                },
+                // {
+                //     label: 'La mia lista',
+                //     url: '#',
+                //     active: false
+                // },
             ],
             listOfCats: [
                 {
-                    title: "Marco",
+                    title: "Leonardo",
+                    sub: 'Di Maggio',
                     visible: true,
-                    url: 'https://i.pinimg.com/originals/61/54/76/61547625e01d8daf941aae3ffb37f653.png'
+                    url: 'https://i.pinimg.com/originals/61/54/76/61547625e01d8daf941aae3ffb37f653.png',
                 },
-                {
-                    title: "Fabrizio",
-                    visible: true,
-                    url: 'https://i.pinimg.com/originals/61/54/76/61547625e01d8daf941aae3ffb37f653.png'
-                },
-                {
-                    title: "Alessio",
-                    visible: true,
-                    url: 'https://i.pinimg.com/originals/61/54/76/61547625e01d8daf941aae3ffb37f653.png'
-                },
+                // {
+                //     title: "Fabrizio",
+                //     visible: true,
+                //     url: 'https://i.pinimg.com/originals/61/54/76/61547625e01d8daf941aae3ffb37f653.png'
+                // },
+                // {
+                //     title: "Alessio",
+                //     visible: true,
+                //     url: 'https://i.pinimg.com/originals/61/54/76/61547625e01d8daf941aae3ffb37f653.png'
+                // },
             ]
         }
     },
@@ -97,12 +98,15 @@ export default {
     </div>
     <div class="right-search d-flex">
         <AppSearch @search="searchAll"/>
-        <div v-for="cat in listOfCats" :key="cat.title">
-              <h2>{{ cat.title }}</h2>
-              <p>{{ cat.msg }}</p>
-              <img :src="cat.url" v-if="cat.visible">
-            </div>
+        
     </div>
+    <div class="card_prof" v-for="cat in listOfCats" :key="cat.title">
+          <img :src="cat.url" v-if="cat.visible">
+          <div class="description">
+              <h6>{{ cat.title }}</h6>
+              <h6>{{ cat.sub }}</h6>
+            </div>
+        </div>
 </div>
 <!-- <newAccount v-on:create-new-cat="addCat($event)"/> -->
 </template>
@@ -112,8 +116,16 @@ export default {
 @use '../styles/partials/variables' as *;
 @use '../styles/partials/mixins' as *;
 
-.ciccio {
+.card_prof {
+    display: flex;
+    gap: 1em;
     color: white;
+    align-items: center;
+    justify-content: end;
+
+    img {
+        width: 50px;
+    }
 }
 
 .search_cont {
@@ -122,18 +134,15 @@ export default {
     justify-content: space-between;
     align-items: center;
     background-color: black;
+    padding: 0em 2em;
 
     h1 {
         color: red;
     }
 
-    .right-search {
-        margin-bottom: 1em;
-    }
-
     .left-search,
     .right-search {
-        padding: 2em 2em;
+        padding: 2em 1em;
         align-items: center;
 
         img {
@@ -146,9 +155,10 @@ export default {
     ul {
         display: flex;
         list-style-type: none;
+        align-items: center;
 
         .active {
-            border-bottom: 3px solid red;
+            border-bottom: 2px solid red;
             padding-bottom: 1em;
         }
 

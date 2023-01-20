@@ -28,4 +28,10 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/partials/variables' as *;
 @use '../styles/partials/mixins' as *;
+
+.form-control:focus {
+    border-color: #a50500;
+    outline: 0;
+    box-shadow: 0 0 0 0rem rgba(117, 0, 0, 0.25);
+}
 </style>
